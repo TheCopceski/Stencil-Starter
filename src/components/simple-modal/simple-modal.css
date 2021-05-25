@@ -1,0 +1,87 @@
+:host {
+    display: block;
+}
+
+.wrapper{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
+    z-index: 10;
+}
+
+.overlay {
+    background: rgba(0, 0, 0, 0.6);
+    height: 100%;
+    width: 100%;
+    position: absolute;
+}
+
+.wrapper .modal{
+    background: white;
+    width: 600px;
+    height: auto;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0px);
+    border-radius: 4px;
+    transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
+}
+
+.wrapper .modal .header{
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid rgb(226, 226, 226);
+}
+.wrapper .modal .header h6{
+    margin: 0;
+    line-height: 1;
+    font-size: 16px;
+}
+
+.wrapper .modal .body {
+    padding: 16px;
+    font-size: 14px;
+    line-height: 21px;
+    max-height: 320px;
+    height: auto;
+    overflow-y: auto;
+    color: black;
+}
+
+.wrapper .modal .footer {
+    padding: 16px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    border-top: 1px solid rgb(226, 226, 226);
+}
+
+.is-open{
+    opacity: 1;
+    visibility: visible;
+    transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
+}
+
+.is-open .modal{
+    transform: translate(-50%, 90px);
+}
+
+@media (max-width: 600px) {
+    .wrapper .modal{
+        width: 100%;
+        bottom: 0;
+        transform: translate(-50%, 100%);
+        opacity: 1;
+    }
+
+    .is-open .modal {
+        transform: translate(-50%, 0);
+    }
+}
